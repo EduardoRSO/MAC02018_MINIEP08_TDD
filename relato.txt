@@ -1,0 +1,2 @@
+Usar o TDD é frustrante, tive que dar dois passos para trás sempre que implementava a proxima etapa porque estou acostumado a programar muito em uma única vez. Isto é perceptível, visto que em alguns momentos os testes foram grandes demais ou englobaram uma grande parte do problema. 
+No entanto, parece algo bom para práticar, e quem sabe ser minha principal ferramenta no futuro.
