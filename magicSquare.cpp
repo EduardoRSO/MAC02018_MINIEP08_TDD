@@ -77,6 +77,23 @@ void test2(){
 	}
 
 }
+
+void test3(){
+	int N = 2;
+	int **m = create2D(N);
+	
+	m[0][0] = 1;
+	m[0][1] = 2;
+	m[1][0] = 1;
+	m[1][1] = 2;
+	
+	if(magicSquare(N, m) == true){
+		cout << "Test 3: OK\n";
+	}else{
+		cout << " Test 3: NO\n";	
+	}
+
+}
 int main(){
 	//int N = 0;
 	//int **array;
@@ -86,5 +103,6 @@ int main(){
 	//see2D(N, array);
 	test1();
 	test2();
+	test3();
 	return 0;
 }
