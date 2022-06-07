@@ -24,10 +24,29 @@ int **create2D(int N){
 	return temp;
 }
 
+int **fill2D(int N, int **m){
+	for(int i = 0; i < N; i++)
+		for(int j = 0; j < N; j++)
+			cin >> m[i][j];
+	return m;
+}
+
+int **see2D(int N, int **m){
+	for(int i = 0; i < N; i++){
+		cout << "[ ";
+		for(int j = 0; j < N; j++)
+			cout << m[i][j] << " ";
+		cout << "]\n";
+	}
+	return m;
+}
 int main(){
-	int N = 1;
-	int **array = create2D(N);
-	array[0][0] = 1;
+	int N = 0;
+	int **array;
+	cin >> N;
+	array = create2D(N);
+	array = fill2D(N, array);
+	see2D(N, array);
 	test1(N, array);
 	return 0;
 }
