@@ -31,11 +31,27 @@ bool equalEvenAndOddNumbers(int N, int **m){
 			if(i == j and (m[i][j] % 2 == 0)) diagonal+=1;
 		}
 	}
-	if(horizontal == diagonal == vertical) return 1;
+	if(horizontal == diagonal)
+		if(horizontal == vertical)
+			return 1;
 	return 0;
 }	
 
 
+bool sumHDV(int N, int **m){
+	int horizontal = 0, vertical = 0, diagonal = 0;
+	for(int i = 0; i < N; i++){
+		for(int j = 0; j < N; j++){
+			if(i == 0) horizontal+=m[i][j];
+			if(j == 0) vertical+=m[i][j];
+			if(i == j) diagonal+=m[i][j];
+		}
+	}
+	if(horizontal == diagonal)
+		if(horizontal == vertical)
+			return 1;
+	return 0;
+}	
 
 bool magicSquare(int N, int **m){
 	see2D(N, m);
@@ -48,7 +64,9 @@ bool magicSquare(int N, int **m){
 	if(equalEvenAndOddNumbers(N, m)){
 		return 1;
 	}
-
+	if(sumHDV(N, m)){
+		return 1;
+	}
 	return 0;
 }
 
@@ -130,6 +148,38 @@ void test4(){
 	}
 
 }
+
+void test5(){
+	int N = 3;
+	int **m = create2D(N);
+	
+	m[0][0] = 1;m[0][1] = 0;m[0][2] = 12;
+	m[1][0] = 1;m[1][1] = 1;m[1][2] = 12;
+	m[2][0] = 10;m[2][1] = 12;m[2][2] = 10;
+	
+	if(!magicSquare(N, m) == true){
+		cout << "Test 5: OK\n";
+	}else{
+		cout << " Test 5: NO\n";	
+	}
+
+}
+
+void test6(){
+	int N = 3;
+	int **m = create2D(N);
+	
+	m[0][0] =0;m[0][1] = 2;m[0][2] = 13;
+	m[1][0] =7;m[1][1] = 0;m[1][2] = 0;
+	m[2][0] =8;m[2][1] = 0;m[2][2] = 15;
+	
+	if(magicSquare(N, m) == true){
+		cout << "Test 6: OK\n";
+	}else{
+		cout << " Test 6: NO\n";	
+	}
+
+}
 int main(){
 	//int N = 0;
 	//int **array;
@@ -141,5 +191,7 @@ int main(){
 	test2();
 	test3();
 	test4();
+	test5();
+	test6();
 	return 0;
 }
